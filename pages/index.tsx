@@ -133,10 +133,10 @@ const Home: NextPage = () => {
       </div>
       
       <form className="flex flex-col items-center p-5 space-y-8 w-full">
-      <TextField variant='outlined' label="First Name"/>
-      <TextField variant='outlined' label="Last Name"/>
-      <TextField variant='outlined' label="Phone"/>
-      <TextField variant='outlined' label="Email"/>
+      <TextField variant='standard' label="First Name"/>
+      <TextField variant='standard' label="Last Name"/>
+      <TextField variant='standard' label="Phone"/>
+      <TextField variant='standard' label="Email"/>
      <button className="rounded-full px-3 py-2 relative bg-blue-800 drop-shadow text-white z-10">Send Message</button>
       </form>
 
