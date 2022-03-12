@@ -9,7 +9,7 @@ const SignUp:NextPage=()=>{
 
     return <div className="bg-gradient-to-r from-blue-400 to-indigo-800 min-h-screen flex flex-col justify-center px-12 py-12 items-center">
             
-            <div className="bg-white w-5/6 h-5/6  flex  px-5 py-5 drop-shadow rounded-lg md:w-1/2  items-center">
+            <div className="bg-white w-full h-5/6  flex  px-5 py-5 drop-shadow rounded-lg md:w-1/2  items-center">
             
             <div className="hidden lg:flex w-2/3">
                 <img src="./images/robo.jpg"/>

@@ -112,7 +112,7 @@ const Home: NextPage = () => {
         <img src="./images/design.webp" className="max-w-sm md:max-w-lg "/>
        
         <div className="flex flex-col items-center w-3/4 space-y-3 md:w-1/2">
-        <h2 className="text-3xl font-bold ">Design</h2>
+        <h2 className="text-2xl font-bold ">Design</h2>
         <h3 className="text-lg font-medium text-gray-800">Build your Bot in just a few minutes.</h3>
         </div>
        
@@ -122,7 +122,7 @@ const Home: NextPage = () => {
         <img src="./images/testing.jpg" className="max-w-sm md:max-w-lg" />
         
         <div  className="flex flex-col items-center w-3/4  space-y-3 md:w-1/2">
-        <h2 className="text-3xl font-bold">Test</h2>
+        <h2 className="text-2xl font-bold">Test</h2>
         <h3 className="text-xl font-medium text-gray-800">Easily Test the bot created before launching.</h3>
         </div>
         
@@ -132,7 +132,7 @@ const Home: NextPage = () => {
 
         <img src="./images/integrate.webp" className="max-w-sm md:max-w-lg "/> 
         <div  className="flex flex-col items-center w-3/4 space-y-3 md:w-1/2">
-        <h2 className="text-3xl font-semibold ">Integrate</h2>
+        <h2 className="text-2xl font-semibold ">Integrate</h2>
         <h3 className="text-xl font-medium text-gray-800">
         Seamlessly integrate the bot to your webapp or website.</h3>
         </div>
