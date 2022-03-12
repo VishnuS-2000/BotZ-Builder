@@ -169,7 +169,7 @@ const Home: NextPage = () => {
 
 
 
-  <div className='bg-yellow-200 px-10 py-10 flex justify-between'>
+  <div className='bg-green-200 px-10 py-10 flex justify-between'>
     <div className="">
 
     <h1 className="text-2xl font-bold">BOT Z</h1>
