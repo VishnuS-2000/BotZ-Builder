@@ -9,6 +9,7 @@ function NavBar() {
   const [showMenu,setShowMenu]=useState(false)
 
   return (
+    
     <div className='bg-white flex flex-col w-screen fixed left-0 top-0 items-center justify-between z-40 md:flex-row justify-evenly px-4 py-2 space-x-15 '>
       
       
@@ -21,6 +22,7 @@ function NavBar() {
     
   
 
+    {/* NavBar Middle */}
 
       <div className='flex items-center hidden md:inline-flex space-x-10'>
         <h3 className='cursor-pointer'>Home </h3>
@@ -28,21 +30,20 @@ function NavBar() {
         <h3 className='cursor-pointer'>Contact</h3>
         <h3 className='cursor-pointer'>About</h3>
 
-
-
-
-
       </div>
       
+
+
+       {/* NavBar Buttons */}
 
       <div className='hidden flex items-center space-x-5 md:inline-flex'>
 
       <Link href="/login">
-      <button className="px-4 py-1 drop-shadow bg-gradient-to-r from-blue-800 to-indigo-800 rounded-full text-white">Sign In</button>
+      <button className="px-4 py-1 drop-shadow bg-gradient-to-r from-blue-800 to-indigo-800 rounded-lg text-white">Sign In</button>
       </Link>
     
       <Link href="/signup">
-      <button className="px-4 py-1  rounded-full border text-blue-700 border-blue-800">Get Started</button>
+      <button className="px-4 py-1  rounded-lg border text-blue-700 border-blue-800">Get Started</button>
       </Link>
    
       </div>

@@ -8,7 +8,6 @@ import InfoIcon from '@mui/icons-material/Info';
 
 
 
-
 export default function SideBar(){
 
 
@@ -19,12 +18,12 @@ export default function SideBar(){
         <h1><InfoIcon/>About</h1>
         <h1><SupportAgentIcon/>Contact</h1>
 
-        <Link href="/login">
+      <Link href="/login">
       <button className="px-2 py-1 drop-shadow bg-gradient-to-r from-blue-800 to-indigo-800 rounded-full text-white">Sign In</button>
       </Link>
     
       <Link href="/signup">
-      <button className="px-2 py-1  rounded-full border text-blue-700 border-blue-800">Get Started</button>
+      <button className="px-2 py-1 rounded-full border text-blue-700 border-blue-800">Get Started</button>
       </Link>
 
     </div>
