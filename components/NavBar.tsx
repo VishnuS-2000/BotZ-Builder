@@ -9,7 +9,7 @@ function NavBar() {
   const [showMenu,setShowMenu]=useState(false)
 
   return (
-    <div className='bg-white flex flex-col w-screen fixed left-0 top-0 items-center justify-between z-50 md:flex-row justify-evenly px-4 py-2 space-x-15 '>
+    <div className='bg-white flex flex-col w-screen fixed left-0 top-0 items-center justify-between z-40 md:flex-row justify-evenly px-4 py-2 space-x-15 '>
       
       
       <div className='flex justify-between w-full md:w-1/4'>

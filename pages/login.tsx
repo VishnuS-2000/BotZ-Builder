@@ -55,9 +55,11 @@ const Login:NextPage=()=>{
 
 
 
-
+      
+            <Link href="/dashboard">
             <button className="bg-blue-900 px-3 py-2 rounded-lg hover:bg-blue-700 duration-700 text-white font-bold">Continue</button>
-
+            </Link>
+            
             <div className="flex py-3 flex-col justify-center space-y-3 lg:hidden">
             <button className="px-2 bg-white py-1 flex w-full drop-shadow border rounded-md text-md font-medium justify-between items-center"><img src="./images/google.png" className="w-10"/> Continue with Google </button>
             <button className="px-2 bg-white py-2 flex w-full drop-shadow border rounded-md text-md font-medium  justify-between items-center"><img src="./images/fb.png" className="w-8 mr-1"/>Continue with Facebook</button>
@@ -72,7 +74,7 @@ const Login:NextPage=()=>{
 
             </div>
             
-            {!resetPassword&&<div className="hidden lg:bg-gray-50 rounded-md my-6 p-5 md:flex items-center flex-col w-1/2 space-y-4">
+            {!resetPassword&&<div className="hidden lg:flex bg-gray-50 rounded-md my-6 p-5  items-center flex-col w-1/2 space-y-4">
 
 <button className="px-5 bg-white py-2 flex w-1/3 drop-shadow border rounded-md text-md font-medium justify-between items-center"><img src="./images/google.png" className="w-10"/>Login with Google </button>
 <button className="px-4 bg-white py-2 flex w-1/3 drop-shadow border rounded-md text-md font-medium  justify-between items-center"><img src="./images/fb.png" className="w-8"/>Login with Facebook</button>

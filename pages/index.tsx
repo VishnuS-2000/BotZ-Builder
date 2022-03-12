@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import NavBar from '../components/NavBar'
+import Chatbot from "../components/Chatbot"
+
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import BugReportIcon from '@mui/icons-material/BugReport';
@@ -13,6 +15,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookSharpIcon from '@mui/icons-material/FacebookSharp';
 import zIndex from '@mui/material/styles/zIndex';
+
+
 
 const Home: NextPage = () => {
   return (
@@ -157,6 +161,14 @@ const Home: NextPage = () => {
 
   
 
+  <Chatbot/>
+
+
+
+  {/* Footer Section */}
+
+
+
   <div className='bg-gray-200 px-10 py-10 flex justify-between'>
     <div className="">
 
@@ -167,7 +179,7 @@ const Home: NextPage = () => {
     <h3 className="my-4"><EmailIcon/>botzbuilder2022@gmail.com</h3>
     </div>
 
-
+  
 
     <div className="">
 
@@ -183,8 +195,8 @@ const Home: NextPage = () => {
 
   </div>
     
-    
-    <button className='rounded-full absolute text-4xl'>...</button>
+
+
     </div>
 
 
