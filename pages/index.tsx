@@ -161,7 +161,7 @@ const Home: NextPage = () => {
 
   
 
-  <Chatbot/>
+
 
 
 
