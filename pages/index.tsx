@@ -99,22 +99,22 @@ const Home: NextPage = () => {
    
 
       <div className="flex px-20 py-20 flex-col ">
-        <div className="flex flex-col items-center p-5 space-y-10 text-center  lg:flex-row  justify-between">
+        <div className="flex flex-col items-center  space-y-10 text-center  lg:flex-row  justify-between">
 
-        <img src="./images/design.webp" className="max-w-lg"/>
+        <img src="./images/design.webp" className="max-w-md md:max-w-lg"/>
         <h2 className="text-2xl font-bold text-gray-800">Design Your Bot in Minutes</h2>
         <h3></h3>
         </div>
 
-        <div className='flex flex-col items-center  p-5 space-y-10 text-center   lg:flex-row-reverse justify-between'>
-        <img src="./images/testing.jpg" className="max-w-lg " />
+        <div className='flex flex-col items-center   space-y-10 text-center   lg:flex-row-reverse justify-between'>
+        <img src="./images/testing.jpg" className="max-w-md md:max-w-lg" />
         <h2 className="text-2xl font-bold text-gray-800">Easily Test your Bot Before Launch</h2>
         <h3></h3>
         </div>
 
-        <div className='flex flex-col items-center  p-5 space-y-10 text-center  lg:flex-row  justify-between space-x-5'>
+        <div className='flex flex-col items-center   space-y-10 text-center  lg:flex-row  justify-between space-x-5'>
 
-        <img src="./images/integrate.webp" className="max-w-lg"/>
+        <img src="./images/integrate.webp" className="max-w-md md:max-w-lg "/>
         <h2 className="text-2xl font-semibold text-gray-800">Integrate Your Bot to a Web App using Minimal code.</h2>
         <h3></h3>
         </div>
