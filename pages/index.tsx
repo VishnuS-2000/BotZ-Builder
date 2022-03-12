@@ -20,7 +20,7 @@ import zIndex from '@mui/material/styles/zIndex';
 
 const Home: NextPage = () => {
   return (
-    <div className=" max-w-7xl mx-auto">
+    <div className="flex justify-center max-w-7xl mx-auto">
       <NavBar/>
     
 
