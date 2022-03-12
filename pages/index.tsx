@@ -20,7 +20,7 @@ import zIndex from '@mui/material/styles/zIndex';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col items-center w-screen  md:max-w-7xl mx-auto">
+    <div className="md:max-w-7xl mx-auto">
       <NavBar/>
     
 
@@ -132,16 +132,16 @@ const Home: NextPage = () => {
       <div className="flex flex-col items-center justify-center text-center space-y-10 relative z-0 mb-5">
 
       <div>
-      <h1 className='text-2xl text-center font-bold text-blue-800'>Get In Touch</h1>
-      <h3 className='text-lg font-xl font-medium text-blue-400'>Please Provide your Details for Support</h3>
+      <h1 className='text-2xl text-center font-bold text-black'>Get In Touch</h1>
+      <h3 className='text-lg font-xl font-medium text-gray-600'>Please Provide your Details for Support</h3>
       </div>
       
-      <form className="flex flex-col items-center p-5 space-y-8 w-full">
+      <form className="flex flex-col items-center  space-y-8 w-full">
       <TextField variant='standard' label="First Name"/>
       <TextField variant='standard' label="Last Name"/>
       <TextField variant='standard' label="Phone"/>
       <TextField variant='standard' label="Email"/>
-     <button className="rounded-full px-3 py-2 relative bg-blue-800 drop-shadow text-white z-10">Send Message</button>
+     <button className="rounded-lg px-3 py-2 relative bg-blue-800 drop-shadow text-white z-10">Send Message</button>
       </form>
 
       </div>
