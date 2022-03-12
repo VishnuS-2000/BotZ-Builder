@@ -20,11 +20,11 @@ import zIndex from '@mui/material/styles/zIndex';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex justify-center max-w-7xl mx-auto">
+    <div className="flex flex-col  max-w-7xl mx-auto">
       <NavBar/>
     
 
-    <div className='bg-gray-50  md:h-auto flex justify-between px-4 py-12'>
+    <div className='bg-gray-50 w-7xl md:h-auto flex justify-between px-4 py-12'>
 
       <div className='flex flex-col justify-center px-8 py-6 space-y-12 '>
 
