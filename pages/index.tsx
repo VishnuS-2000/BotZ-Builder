@@ -20,7 +20,7 @@ import zIndex from '@mui/material/styles/zIndex';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex flex-col  max-w-7xl mx-auto">
+    <div className="flex flex-col  md:max-w-7xl mx-auto">
       <NavBar/>
     
 
@@ -169,7 +169,7 @@ const Home: NextPage = () => {
 
 
 
-  <div className='bg-gray-200 px-10 py-10 flex justify-between'>
+  <div className='bg-yellow-200 px-10 py-10 flex justify-between'>
     <div className="">
 
     <h1 className="text-2xl font-bold">BOT Z</h1>
