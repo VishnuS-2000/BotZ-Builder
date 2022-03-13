@@ -19,7 +19,7 @@ const SignUp:NextPage=()=>{
             <h1 className="text-xl my-2 space-y-3 font-bold md:text-2xl  ">Register</h1>
             
 
-            <TextField variant="standard" label="First Name"  />
+            <TextField variant="standard" label="First Name"/>
             <TextField variant="standard" label="Last Name"/>
 
             <TextField variant="standard" label="Email"  />
@@ -33,7 +33,7 @@ const SignUp:NextPage=()=>{
 
 
 
-            <button className="bg-blue-900 px-3 py-2 rounded-lg hover:bg-blue-700 duration-700 text-white font-bold">Create Account</button>
+            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-700 px-3 py-2 rounded-lg text-white font-bold">Create Account</button>
             
             <div className="flex py-3 flex-col justify-center space-y-3 lg:hidden">
             <button className="px-2 bg-white py-1 flex   drop-shadow border rounded-md text-md font-medium justify-between items-center"><img src="./images/google.png" className="w-10"/> Continue with Google </button>

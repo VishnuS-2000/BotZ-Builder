@@ -27,8 +27,8 @@ const Login:NextPage=()=>{
             <TextField variant="standard" label="Email" />
 
             <div className="flex justify-evenly space-x-5">
-            <button className="bg-blue-900 px-3 py-2 rounded-lg hover:bg-blue-700 duration-700 text-white font-bold" onClick={()=>{setResetPassword(false)}}>Back</button>
-            <button className="bg-blue-900 px-3 py-2 rounded-lg hover:bg-blue-700 duration-700 text-white font-bold">Send Mail</button>
+            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg text-white font-bold" onClick={()=>{setResetPassword(false)}}>Back</button>
+            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg  text-white font-bold">Send Mail</button>
             </div>
                 </form>
 
@@ -57,7 +57,7 @@ const Login:NextPage=()=>{
 
       
             <Link href="/dashboard">
-            <button className="bg-blue-900 px-3 py-2 rounded-lg hover:bg-blue-700 duration-700 text-white font-bold">Continue</button>
+            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg duration-700 text-white font-bold">Continue</button>
             </Link>
             
             <div className="flex py-3 flex-col justify-center space-y-3 lg:hidden">

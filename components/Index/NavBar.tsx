@@ -39,7 +39,7 @@ function NavBar() {
       <div className='hidden flex items-center space-x-5 md:inline-flex'>
 
       <Link href="/login">
-      <button className="px-4 py-1 drop-shadow bg-gradient-to-r from-blue-800 to-indigo-800 rounded-lg text-white">Sign In</button>
+      <button className="px-4 py-1 drop-shadow bg-blue-800 hover:bg-blue-600 transition-all duration-500 rounded-lg text-white">Sign In</button>
       </Link>
     
       <Link href="/signup">

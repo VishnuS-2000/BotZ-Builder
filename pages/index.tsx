@@ -3,8 +3,8 @@ import type { NextPage } from 'next'
 
 // import components
 
-import NavBar from '../components/NavBar'
-import Chatbot from "../components/Chatbot"
+import NavBar from '../components/Index/NavBar'
+import Chatbot from "../components/Widgets/Chatbot"
 
 
 // import icons
@@ -160,7 +160,7 @@ const Home: NextPage = () => {
       <TextField variant='filled' label="Last Name" fullWidth/>
       <TextField variant='filled' label="Phone" fullWidth/>
       <TextField variant='filled' label="Email" fullWidth/>
-     <button className="rounded-lg px-3 py-2 relative bg-blue-800 drop-shadow text-white z-10">Send Message</button>
+     <button className="rounded-lg px-3 py-2 relative bg-blue-800 hover:bg-blue-600 transition-all duration-500 drop-shadow text-white z-10">Send Message</button>
       </form>
 
       </div>
