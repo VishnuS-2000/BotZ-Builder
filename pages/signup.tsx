@@ -1,10 +1,43 @@
-import React from "react"
+import React,{useState,useEffect} from "react"
 import { NextPage } from "next"
 import { TextField } from "@mui/material"
 
+import {useRouter} from "next/router"
+
+
+import {useAuth} from "../auth"
 
 const SignUp:NextPage=()=>{
 
+    const {signUp}=useAuth()
+    const[first,setFirst]=useState("")
+    const[last,setLast]=useState("")
+    const[email,setEmail]=useState("")
+    const[password,setPassword]=useState("")
+    const[confirm,setConfirm]=useState("")
+
+
+    const router=useRouter()
+ 
+
+    const handleSignUp=(e)=>{
+        e.preventDefault()
+        try{
+            if(password==confirm){
+                signUp(email,password)
+                router.push("/dashboard")
+            }
+
+            
+        }
+        catch(err){
+            console.log(err.message)
+        }
+
+    }
+
+ 
+    
 
 
     return <div className="bg-gradient-to-r from-blue-400 to-indigo-800 min-h-screen flex flex-col justify-center px-12 py-12 items-center">
@@ -19,12 +52,12 @@ const SignUp:NextPage=()=>{
             <h1 className="text-xl my-2 space-y-3 font-bold md:text-2xl  ">Register</h1>
             
 
-            <TextField variant="standard" label="First Name"/>
-            <TextField variant="standard" label="Last Name"/>
+            <TextField variant="standard" label="First Name" onChange={(e)=>{setFirst(e.target.value)}}/>
+            <TextField variant="standard" label="Last Name" onChange={(e)=>{setLast(e.target.value)}}/>
 
-            <TextField variant="standard" label="Email"  />
-            <TextField variant="standard" label="Password"/>
-            <TextField variant="standard" label="Confirm Password"/>    
+            <TextField variant="standard" label="Email"  onChange={(e)=>{setEmail(e.target.value)}}/>
+            <TextField variant="standard" label="Password" onChange={(e)=>{setPassword(e.target.value)}}/>
+            <TextField variant="standard" label="Confirm Password" onChange={(e)=>setConfirm(e.target.value)}/>    
         
             
 
@@ -33,13 +66,9 @@ const SignUp:NextPage=()=>{
 
 
 
-            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-700 px-3 py-2 rounded-lg text-white font-bold">Create Account</button>
+            <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-700 px-3 py-2 rounded-lg text-white font-bold" onClick={handleSignUp}>Create Account</button>
             
-            <div className="flex py-3 flex-col justify-center space-y-3 lg:hidden">
-            <button className="px-2 bg-white py-1 flex   drop-shadow border rounded-md text-md font-medium justify-between items-center"><img src="./images/google.png" className="w-10"/> Continue with Google </button>
-            <button className="px-2 bg-white py-2 flex  drop-shadow border rounded-md text-md font-medium  justify-between items-center"><img src="./images/fb.png" className="w-8 mr-1"/>Continue with Facebook</button>
-
-            </div>
+        
             
             </form>
 
@@ -49,15 +78,7 @@ const SignUp:NextPage=()=>{
 
             </div>
             
-            <div className="hidden lg:bg-gray-50  rounded-md  my-6 p-5 md:flex items-center flex-col w-1/2 space-y-4">
-
-<button className="hidden lg:flex px-5 bg-white py-2  w-1/3 drop-shadow border rounded-md text-md font-medium justify-between items-center"><img src="./images/google.png" className="w-10"/> Continue with Google </button>
-<button className="hidden lg:flex px-4 bg-white py-2  w-1/3 drop-shadow border rounded-md text-md font-medium  justify-between items-center"><img src="./images/fb.png" className="w-8"/>Continue with Facebook</button>
-
-
-
-</div>
-          
+ 
             
 
 
