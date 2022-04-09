@@ -27,7 +27,7 @@ const Login:NextPage=()=>{
 
         try{
         login(email,password)
-        router.push("/dashboard")
+        router.replace("/home")
         }
 
         catch(err){
@@ -41,7 +41,7 @@ const Login:NextPage=()=>{
         try{
         loginWithGoogle()
         console.log(user)
-        router.push("/dashboard")
+        router.push("/home")
        
         }
         catch(err){
@@ -51,7 +51,7 @@ const Login:NextPage=()=>{
 
     useEffect(()=>{
         if(user){
-            router.push("/dashboard")
+            router.push("/home")
         }
     
     },[router,user])
@@ -103,7 +103,7 @@ const Login:NextPage=()=>{
 
 
       
-            <Link href="/dashboard">
+            <Link href="/home">
             <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg duration-700 text-white font-bold" onClick={handleLogin}>Continue</button>
             </Link>
             

@@ -24,8 +24,8 @@ const SignUp:NextPage=()=>{
         e.preventDefault()
         try{
             if(password==confirm){
-                signUp(email,password)
-                router.push("/dashboard")
+                signUp(email,password,first,last)
+                router.replace("/home")
             }
 
             

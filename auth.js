@@ -29,7 +29,9 @@ export const AuthContextProvider=({children})=>{
                 console.log(user)
                 setUser({
                     userid:user.uid,
-                    email:user.email
+                    email:user.email,
+                    photoURL:user.photoURL,
+                    displayName:user.displayName
                 })
             }
             else{
@@ -45,14 +47,14 @@ export const AuthContextProvider=({children})=>{
     },[])
     
 
-    const signUp=(email,password)=>{
+    const signUp=(email,password,first,last)=>{
         createUserWithEmailAndPassword(auth,email,password).then(async(result)=>{
 
             const status=setDoc(doc(db,"users",result.user.uid),{
                         email:result.user.email,
-                        photoURL:result.user.photoURL||"unknown",
-                        displayName:result.user.displayName||"unknown"
-    
+                        photoURL:"https://ui-avatars.com/api/?name="+first+' '+last,
+                        displayName:first+' '+last,
+                        status:"first"
                     })
                       
         }).catch((err)=>{
@@ -64,23 +66,7 @@ export const AuthContextProvider=({children})=>{
     const login=(email,password)=>{
         signInWithEmailAndPassword(auth,email,password).then(async(result)=>{
             const docRef=doc(db,"users",result.user.uid);
-            const docSnap=await getDoc(docRef)
-            
-            if(docSnap.exists()){
-                 
-                console.log("Document Exists")
-            
-            }
-            else{
-                  
-                    const status=setDoc(doc(db,"users",result.user.uid),{
-                        email:result.user.email,
-                        photoURL:result.user.photoURL||"unknown",
-                        displayName:result.user.displayName||"unknown"
-    
-                    })
-            }
-            
+            const docSnap=await getDoc(docRef)   
 
 
         }).catch((err)=>{
@@ -111,8 +97,8 @@ export const AuthContextProvider=({children})=>{
                         const status=setDoc(doc(db,"users",result.user.uid),{
                             email:result.user.email,
                             photoURL:result.user.photoURL||"unknown",
-                            displayName:result.user.displayName||"unknown"
-        
+                            displayName:result.user.displayName||"unknown",
+                            status:"first"
                         })
                 }
                 
