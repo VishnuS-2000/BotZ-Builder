@@ -3,7 +3,8 @@ import {onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPass
 import {auth} from "./firebase"
 import {db} from "./firebase"
 
-import {doc,collection,query,where,getDoc,addDoc,setDoc} from "firebase/firestore"
+import {doc,collection,query,where,getDoc,onSnapshot} from "firebase/firestore"
+
 
 
 
@@ -26,14 +27,72 @@ export const AuthContextProvider=({children})=>{
         const unsubscribe=onAuthStateChanged(auth,(user)=>{
 
             if(user){
+
+                console.log(user.uid)
+
                 console.log(user)
-                setUser({
-                    userid:user.uid,
-                    email:user.email,
-                    photoURL:user.photoURL,
-                    displayName:user.displayName
-                })
+
+
+                console.log(db)
+                
+
+
+
+                const getUser=async()=>{
+                    
+        
+                    
+                    const docRef=doc(db,"users",user.uid)
+                  
+                    const snapShot=await getDoc(docRef);
+
+                        if(!snapShot.exists()){
+                            setUser({
+                                userId:user.uid,
+                                photoURL:user.photoURL,
+                                email:user.email,
+                                displayName:user.displayName,
+                                
+    
+    
+                            })
+                        }
+    
+                        else{
+    
+                            setUser({
+    
+                                userId:user.uid,
+                                email:doc.data().email,
+                                photoURL:doc.data().photoURL,
+                                displayName:doc.data().displayName,
+                        
+
+        
+        
+                            })
+
+                        }
+
+
+
+
+                    
+                  
+                  
+                    }
+
+                   
+
+                
+
+                getUser()
+              
+
+                
             }
+
+
             else{
                 setUser(null)
             }
@@ -48,14 +107,21 @@ export const AuthContextProvider=({children})=>{
     
 
     const signUp=(email,password,first,last)=>{
+
+        console.log(first,last)
+        
         createUserWithEmailAndPassword(auth,email,password).then(async(result)=>{
 
             const status=setDoc(doc(db,"users",result.user.uid),{
                         email:result.user.email,
                         photoURL:"https://ui-avatars.com/api/?name="+first+' '+last,
                         displayName:first+' '+last,
-                        status:"first"
+                        status:"first",
+                        bot:{}
+                    
                     })
+
+                    console.log(status)
                       
         }).catch((err)=>{
             
@@ -88,7 +154,7 @@ export const AuthContextProvider=({children})=>{
         
           
                 if(docSnap.exists()){
-                     
+
                     console.log("Document Exists")
                 
                 }
@@ -98,8 +164,12 @@ export const AuthContextProvider=({children})=>{
                             email:result.user.email,
                             photoURL:result.user.photoURL||"unknown",
                             displayName:result.user.displayName||"unknown",
-                            status:"first"
+                            status:"first",
+                            bot:{}
+                            
                         })
+
+                
                 }
                 
             })

@@ -30,7 +30,7 @@ export default function SideMenu(){
    const [expanded,setExpanded]=useState(true)
 
 
-    return <div className="flex flex-col h-full justify-evenly text-white bg-gradient-to-tl from-blue-500 to-indigo-800 border-gray-200 bg-white drop-shadow rounded-br-2xl rounded-tr-2xl font-sans fixed top-0 bottom-0 left-0">
+    return <div className="flex flex-col h-full justify-evenly text-white bg-gradient-to-tl from-blue-500 to-indigo-800 border-gray-200 bg-white drop-shadow rounded-br-2xl rounded-tr-2xl font-sans fixed top-0 bottom-0 left-0 z-50">
 
 
     <div className="space-y-4">
@@ -42,7 +42,7 @@ export default function SideMenu(){
                 <Button>
          
                 <Avatar src={user.photoURL} style={{fontSize:"1rem"}}/>
-                {expanded&&<h1 className="text-white font-bold ml-5">{user.displayName}</h1>}
+                {expanded&&<h1 className="text-white font-medium ml-5">{user.displayName}</h1>}
                 </Button>
                 </Link>
  
@@ -63,7 +63,7 @@ export default function SideMenu(){
                 <Button>
          
                 <HomeIcon style={{fontSize:"2rem",color:"white"}}/>
-                {expanded&&<h1 className="text-white font-bold ml-5">Home</h1>}
+                {expanded&&<h1 className="text-white font-medium ml-5">Home</h1>}
                 </Button>
 
                 </Link>
@@ -78,10 +78,10 @@ export default function SideMenu(){
              <div className="flex w-full px-2 py-2 cursor-pointer">
 
                <Link href={{pathname:"/design",query:{id:user.userid}}}>
-                <Button className="text-center font-bold">
+                <Button className="text-center">
 
                 <BuildIcon style={{fontSize:"2rem",color:"white"}}/>
-                {expanded&&<h1 className="text-white font-bold ml-5">Build</h1>}
+                {expanded&&<h1 className="text-white font-medium ml-5">Build</h1>}
                 </Button>
 
                 </Link>
@@ -95,9 +95,9 @@ export default function SideMenu(){
               
 
                <Link href={{pathname:"/test",query:{id:user.userid}}}>
-                <Button className="text-xl text-center font-bold">
+                <Button className="text-xl text-center">
                 <BugReportIcon style={{fontSize:"2rem",color:"white"}}/>      
-                {expanded&&<h1 className="text-white font-bold ml-5">Test</h1>}
+                {expanded&&<h1 className="text-white font-medium ml-5">Test</h1>}
             </Button>
 
             </Link>
@@ -108,9 +108,9 @@ export default function SideMenu(){
 
 
 <Link href={{pathname:"/integrate",query:{id:user.userid}}}>
-<Button className="text-xl text-center font-bold">
+<Button className="text-xl text-center font-medium">
 <CodeIcon style={{fontSize:"2rem",color:"white"}}/>
-{expanded&&<h1 className="text-white font-bold ml-5">Integrate</h1>}
+{expanded&&<h1 className="text-white font-medium ml-5">Integrate</h1>}
 </Button>
 
 </Link>
@@ -123,7 +123,7 @@ export default function SideMenu(){
         
           <Button className="text-xl text-center font-bold" onClick={logOut}>
                 <LogoutIcon style={{fontSize:"2rem",color:"white"}}/>    
-                {expanded&&<h1 className="text-white font-bold ml-5">Logout</h1>}
+                {expanded&&<h1 className="text-white font-medium ml-5">Logout</h1>}
             </Button>
            
          
