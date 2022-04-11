@@ -171,6 +171,17 @@ const Home: NextPage = () => {
     </div>
     </div>
 
+
+    <div className="mapouter">
+      <div className="gmap_canvas">
+        <iframe className="gmap_iframe" height="400px" width="100%"  scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Cochin University&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+
+        </iframe>
+        <a href="https://kokagames.com/">FNF Mods</a>
+      </div>
+      
+    </div>
+
   
 
 
