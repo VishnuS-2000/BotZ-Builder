@@ -177,7 +177,7 @@ const Home: NextPage = () => {
         <iframe className="gmap_iframe" height="400px" width="100%"  scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Cochin University&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
 
         </iframe>
-        <a href="https://kokagames.com/">FNF Mods</a>
+
       </div>
       
     </div>
@@ -199,7 +199,7 @@ const Home: NextPage = () => {
     <h3 className="text-lg ">Abdullah's Corner,CUSAT</h3>
     <h3 className="text-lg ">Kochi,682022</h3>
 
-    <h3 className="my-4"><EmailIcon/>botzbuilder2022@gmail.com</h3>
+    <h3 className="my-4"><EmailIcon/>botzbuilder@gmail.com</h3>
     </div>
 
   

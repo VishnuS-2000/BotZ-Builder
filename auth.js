@@ -124,7 +124,7 @@ export const AuthContextProvider=({children})=>{
                         lastName:last,
                         organizationName:'',
                         stage:"created",
-                        bot:{}
+ 
                     
                     })
 
@@ -174,7 +174,7 @@ export const AuthContextProvider=({children})=>{
                             lastName:'',
                             organizationName:'',
                             stage:"created",
-                            bot:{}
+                   
                             
                         })
 
