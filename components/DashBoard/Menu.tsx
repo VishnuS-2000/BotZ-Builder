@@ -27,7 +27,7 @@ export default function SideMenu(){
    
    const {logOut,user}=useAuth()
 
-   const [expanded,setExpanded]=useState(true)
+   const [expanded,setExpanded]=useState(false)
 
 
     return <div className="flex flex-col h-full justify-evenly text-white bg-gradient-to-tl from-blue-500 to-indigo-800 border-gray-200 bg-white drop-shadow rounded-br-2xl rounded-tr-2xl font-sans fixed top-0 bottom-0 left-0 z-50">

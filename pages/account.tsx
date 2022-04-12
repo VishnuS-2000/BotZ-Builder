@@ -1,11 +1,27 @@
 import React,{useState} from "react"
 import SideMenu from "../components/DashBoard/Menu"
 import { Avatar,TextField} from '@mui/material';
+import {useAuth} from "../auth"
+
+
+
 
 export default function Account(){
 
 
     const [profileMode,setProfileMode]=useState(true)
+    const {user}=useAuth()
+
+    const [account,setAccount]=useState({
+      photoURL:user.photoURL,
+      displayName:user.displayName,
+      email:user.email,
+      firstName:user.firstName,
+      lastName:user.lastName,
+      organizationName:user.organizationName
+
+    })
+
 
 
     return (
@@ -29,22 +45,28 @@ export default function Account(){
      {profileMode&&<div className="flex flex-col space-y-10">
 
       <div className="flex space-x-5 items-center">
-      <Avatar src="" style={{width:"60px",height:"60px"}}></Avatar>
+      <Avatar src={account.photoURL} style={{width:"60px",height:"60px"}}></Avatar>
       <p className="cursor-pointer">Change Picture</p>
       </div>
 
-      <div className="space-x-4">
-      <TextField label="First Name"></TextField>
-      <TextField label="Last Name"></TextField>
+      <div className="">
+        <TextField label="Display Name" defaultValue={user.displayName} value={account.displayName} />
+      </div>
+
+      <div className="space-x-4" >
+      <TextField label="First Name" defaultValue={user.firstName}  value={account.firstName}/>
+      <TextField label="Last Name" defaultValue={user.lastName} value={account.lastName}/>
       </div>
 
       <div className="">
-        <TextField label="Email" fullWidth/>
+        <TextField label="Organization Name" fullWidth defaultValue={user.organizationName} value={account.organizationName} />
       </div>
 
       <div className="">
-        <TextField label="Display Name"></TextField>
+        <TextField label="Email" fullWidth defaultValue={user.email} value={account.email}/>
       </div>
+
+   
 
       <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg text-white font-bold">Save Changes</button>
     </div>}

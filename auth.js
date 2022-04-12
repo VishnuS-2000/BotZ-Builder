@@ -3,7 +3,7 @@ import {onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPass
 import {auth} from "./firebase"
 import {db} from "./firebase"
 
-import {doc,collection,query,where,getDoc,onSnapshot} from "firebase/firestore"
+import {doc,collection,query,where,setDoc,getDoc,onSnapshot} from "firebase/firestore"
 
 
 
@@ -52,7 +52,9 @@ export const AuthContextProvider=({children})=>{
                                 photoURL:user.photoURL,
                                 email:user.email,
                                 displayName:user.displayName,
-                                
+                                firstName:'',
+                                lastName:'',
+                                organizationName:'',
     
     
                             })
@@ -63,10 +65,12 @@ export const AuthContextProvider=({children})=>{
                             setUser({
     
                                 userId:user.uid,
-                                email:doc.data().email,
-                                photoURL:doc.data().photoURL,
-                                displayName:doc.data().displayName,
-                        
+                                email:snapShot.data().email,
+                                photoURL:snapShot.data().photoURL,
+                                displayName:snapShot.data().displayName,
+                                firstName:snapShot.data().firstName,
+                                lastName:snapShot.data().lastName,
+                                organizationName:snapShot.data().organizationName,
 
         
         
@@ -116,7 +120,10 @@ export const AuthContextProvider=({children})=>{
                         email:result.user.email,
                         photoURL:"https://ui-avatars.com/api/?name="+first+' '+last,
                         displayName:first+' '+last,
-                        status:"first",
+                        firstName:first,
+                        lastName:last,
+                        organizationName:'',
+                        stage:"created",
                         bot:{}
                     
                     })
@@ -152,19 +159,21 @@ export const AuthContextProvider=({children})=>{
                 const docRef=doc(db,"users",result.user.uid);
                 const docSnap=await getDoc(docRef)
         
-          
                 if(docSnap.exists()){
 
                     console.log("Document Exists")
                 
                 }
                 else{
-                      
+                        
                         const status=setDoc(doc(db,"users",result.user.uid),{
                             email:result.user.email,
                             photoURL:result.user.photoURL||"unknown",
                             displayName:result.user.displayName||"unknown",
-                            status:"first",
+                            firstName:'',
+                            lastName:'',
+                            organizationName:'',
+                            stage:"created",
                             bot:{}
                             
                         })

@@ -23,6 +23,8 @@ export default function Design(){
   }
 
 
+  
+
    return (
         <div className="flex flex-col w-full h-screen items-center p-8">
           <SideMenu/>
@@ -33,7 +35,7 @@ export default function Design(){
               </div>
               <div className="flex flex-col flex-[3] justify-around">
                 <h1 className="text-2xl font-semibold">Training Data</h1>
-                <p>Enter your Data</p>
+
                 <TextField name="tag" value={tag} label="Tag" onChange={({target}) => setTag(target.value)}/>
                 <TextField name="input" value={input} label="Input" onChange={({target}) => setInput(target.value)}/>
                 <TextField name="response" value={response} label="Responses" onChange={({target}) => setResponse(target.value)}/>
