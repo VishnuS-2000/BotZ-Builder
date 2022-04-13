@@ -1,6 +1,4 @@
-export const data={
-
-    "intents":[
+export const defaultIntents=[
         {
             "tag": "greeting",
             "patterns": [
@@ -54,4 +52,3 @@ export const data={
       }
     ]
 
-}

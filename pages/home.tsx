@@ -9,14 +9,14 @@ import AddIcon from '@mui/icons-material/Add';
 import {db} from "../firebase"
 
 import {doc,getDoc,updateDoc,onSnapshot,serverTimestamp} from "firebase/firestore"
-import {data} from "./Assets/Dashboard/intents"
+import {defaultIntents} from "./Assets/Dashboard/intents"
 
 import Link from "next/Link"
 
 import {useRouter} from "next/router"
 
 import { IconButton, TextField } from '@mui/material';
-import { Co2Sharp } from '@mui/icons-material';
+
 import Modal from '../components/DashBoard/Modal';
 
 
@@ -44,7 +44,7 @@ export default function Home() {
     e.preventDefault()
 
     console.log(user.userId)
-    const status=await updateDoc(docRef,{bot:{name:botName,trainingData:data}})
+    const status=await updateDoc(docRef,{bot:{name:botName,intents:defaultIntents}})
 
     setShowModal(false)
     setBotName("")
@@ -142,7 +142,7 @@ const EditModal=()=>{
 
 
 
-  if(!bot ) return <h1>Loading...</h1> 
+
 
 
   return (
