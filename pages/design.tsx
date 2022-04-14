@@ -22,6 +22,8 @@ export default function Design(){
   const [responses, setResponses] = useState([]);
 
 
+  const [showModal,setShowModal]=useState(true)
+
   const [bot,setBot]=useState(null)
   const {user}=useAuth()
 
@@ -153,7 +155,7 @@ export default function Design(){
 
   
 
-   return (
+   return (<>
          <div className="flex flex-col w-full h-screen items-center p-8">
           <SideMenu/>
           {bot?<div className="flex  w-11/12 h-full">
@@ -240,9 +242,10 @@ export default function Design(){
 
 
 
-      </div>
-  
-    
+        </div>
+      
+   
+                </>
       )
 
     }
@@ -261,8 +264,7 @@ export default function Design(){
 
     const Modal=()=>{
 
-      return <div className="fixed top-0 bottom-0 left-0  bg-white">
-
+      return <div className="fixed top-0 bottom-0 left-0 w-screen h-screen z-40 bg-white">
         <h1>Hello</h1>
       </div>
     }
