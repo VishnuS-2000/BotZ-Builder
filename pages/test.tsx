@@ -10,6 +10,10 @@ import Link from "next/link"
 import { IconButton, TextField,InputAdornment } from "@mui/material"
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
+import Head from "next/head"
+import Script from "next/script"
+
+
 
 export default function Test(){
     const [bot,setBot]=useState(null)
@@ -39,7 +43,16 @@ export default function Test(){
    return<>
     <SideMenu/>
 
-   
+    <div class="chatbot"></div>
+    <link
+  href="https://vishnus-2000.github.io/BotZ-Widget/docs/index.css"
+  rel="stylesheet"
+/>
+<Script  src="https://vishnus-2000.github.io/BotZ-Widget/docs/index.js"   strategy="beforeInteractive"/>
+
+
+
+{/*    
     <div className="w-screen h-screen flex flex-col justify-center items-center">
 
       {bot?<>
@@ -56,7 +69,7 @@ export default function Test(){
           </div>}
       
 
-  </div>
+  </div> */}
 
     
   </>

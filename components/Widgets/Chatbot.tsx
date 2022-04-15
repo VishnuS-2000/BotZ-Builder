@@ -18,9 +18,10 @@ function Chatbot() {
   return (
     <div>
 
+
     
     {showBot&&
-    <div className='flex flex-col  h-full w-full z-50 px-5 py-10 fixed right-0 bottom-0 top-0  justify-start  bg-white  drop-shadow self-end md:w-1/3 top-auto lg:h-3/4 px-0 py-0'>
+    <div className='flex flex-col  h-full w-full z-50  fixed right-0 bottom-0 top-0  justify-start  bg-white  drop-shadow self-end md:w-1/3 top-auto lg:h-3/4 '>
       
       {/* Chatbot Header */}
 
@@ -144,7 +145,7 @@ export const TestBot=({intents})=>{
       <input type="text" className="p-5 h-full w-3/4 outline-none  rounded-lg text-lg md:text-xl" placeholder="Type a Message" value={userQuery} onChange={(e)=>{setUserQuery(e.target.value)}}/>
       <button className="relative py-2 px-4 "><SendIcon style={{fontSize:"2rem",color:"blue"}} onClick={handleClick}/></button>
       </div>
-  
+
 
     </div>
 

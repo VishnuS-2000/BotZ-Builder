@@ -203,7 +203,7 @@ export const AuthContextProvider=({children})=>{
 
 
 
-    return <AuthContext.Provider value={{user,login,signUp,logOut,loginWithGoogle}}>
+    return <AuthContext.Provider value={{user,setUser,login,signUp,logOut,loginWithGoogle}}>
     {loading?null:children}
     </AuthContext.Provider>
     
