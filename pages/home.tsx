@@ -11,14 +11,14 @@ import {db} from "../firebase"
 import {doc,getDoc,updateDoc,onSnapshot,serverTimestamp} from "firebase/firestore"
 import {defaultIntents} from "./Assets/Dashboard/intents"
 
-import Link from "next/Link"
 
-import {useRouter} from "next/router"
+
 
 import { IconButton, TextField } from '@mui/material';
 
 import Modal from '../components/DashBoard/Modal';
 
+import {getAuth} from "firebase/auth"
 
 
 export default function Home() {
@@ -29,8 +29,21 @@ export default function Home() {
   const[bot,setBot]=useState()
   const[showDeleteModal,setShowDeleteModal]=useState(false)
   const[showEditModal,setShowEditModal]=useState(false)
+
+  const [profile,setProfile]=useState(null)
   
 
+  useEffect(()=>{
+    if(user){
+
+    setProfile(getAuth().currentUser)
+
+
+    }
+ 
+
+
+  },[])
 
 
 
@@ -44,7 +57,7 @@ export default function Home() {
     e.preventDefault()
 
     console.log(user.userId)
-    const status=await updateDoc(docRef,{bot:{name:botName,intents:defaultIntents}})
+    const status=await updateDoc(docRef,{bot:{name:botName,intents:defaultIntents,createdAt:serverTimestamp()}})
 
     setShowModal(false)
     setBotName("")
@@ -67,7 +80,7 @@ export default function Home() {
   const editBot=async(e)=>{
 
     e.preventDefault()
-    const status=await updateDoc(docRef,{bot:{name:botName,trainingData:data}})
+    const status=await updateDoc(docRef,{bot:{name:botName,intents:bot.intents,createdAt:bot.createdAt}})
     setShowEditModal(false)
   }
 
@@ -147,12 +160,15 @@ const EditModal=()=>{
 
   return (
     <>
-    <div className="w-full flex flex-col items-center h-screen py-20 justify-start space-y-20">
-      <SideMenu/>
+    
+    
+    {profile?<div className="w-full flex flex-col items-center h-screen py-20 justify-start space-y-20">
+
+    <SideMenu />
 
 
     <div className="drop-shadow rounded-xl space-y-3 bg-white p-5 w-3/4 md:w-1/2">
-      <h1 className="text-3xl  font-medium font-sans text-center">Welcome,{user.displayName}</h1>
+      <h1 className="text-3xl  font-medium font-sans text-center">Welcome,{profile.displayName}</h1>
       <p className='text-center'></p>
       </div>
 
@@ -166,7 +182,7 @@ const EditModal=()=>{
         <h1 className="text-2xl font-bold">Bot In Progress</h1>
         <div className="flex flex-col justify-center items-start p-10 w-1/2 cursor-pointer drop-shadow border space-y-10">
           <h1 className="text-2xl font-medium">{bot.name}</h1>
-          {/* <p className="text-gray-700">Created: {Date(bot.createdAt)}</p> */}
+          <p className="text-gray-700">Created {bot.createdAt.toDate().toLocaleDateString(undefined,{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} </p> 
         
           
           <div className="flex space-x-5 items-center">
@@ -200,7 +216,9 @@ const EditModal=()=>{
 
 
 
-    </div>
+    </div>:<div>
+
+      </div>}
 
 
     {showModal&&<Modal {...{botName, setBotName, setShowModal, botAction: createBot, title:"Create Bot", desc:"Get started by naming your bot.",primaryColor: "bg-blue-800"}} />}

@@ -16,4 +16,7 @@ const IntentCard = ({tag, pattern, response,actions,id}: {tag: String, pattern: 
     </div>
 }
 
+
+
+
 export default IntentCard;

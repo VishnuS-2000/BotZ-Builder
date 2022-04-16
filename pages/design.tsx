@@ -29,6 +29,10 @@ export default function Design(){
 
   const docRef=doc(db,"users",user.userId)
 
+  const [profile,setProfile]=useState(null)
+  
+
+ 
 
 
 
@@ -157,14 +161,15 @@ export default function Design(){
 
    return (<>
          <div className="flex flex-col w-full h-screen items-center p-8">
-          <SideMenu/>
+          <SideMenu />
           {bot?<div className="flex  w-11/12 h-full">
             <div className="flex-1 flex flex-col p-8">
               <div className="flex-[1]">
-                <h1 className="text-center text-2xl font-semibold">{bot.name}</h1>
+                <h1 className="text-left text-2xl font-semibold">{bot.name}</h1>
               </div>
               <div className="flex flex-col flex-[3] justify-around">
-                <h1 className="text-2xl font-semibold">Training Data</h1>
+                <h1 className="text-2xl font-semibold">Intents</h1>
+                <p className="text-lg font-medium text-gray-600">Training Data for your Chatbot</p>
 
                 <TextField name="tag" value={tag} label="Tag" onChange={({target}) => setTag(target.value)} />
 
@@ -262,9 +267,3 @@ export default function Design(){
     }
 
 
-    const Modal=()=>{
-
-      return <div className="fixed top-0 bottom-0 left-0 w-screen h-screen z-40 bg-white">
-        <h1>Hello</h1>
-      </div>
-    }

@@ -4,6 +4,7 @@ import {auth} from "./firebase"
 import {db} from "./firebase"
 
 import {doc,collection,query,where,setDoc,getDoc,onSnapshot} from "firebase/firestore"
+import {getAuth,updateProfile,sendEmailVerification} from "firebase/auth"
 
 
 
@@ -16,6 +17,7 @@ export const useAuth=()=>useContext(AuthContext)
 export const AuthContextProvider=({children})=>{
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(true)
+
   
 
 
@@ -25,78 +27,21 @@ export const AuthContextProvider=({children})=>{
     useEffect(()=>{
 
         const unsubscribe=onAuthStateChanged(auth,(user)=>{
-
+            
+        
             if(user){
 
-                console.log(user.uid)
-
-                console.log(user)
-
-
-                console.log(db)
+         
                 
-
-
-
-                const getUser=async()=>{
-                    
         
-                    
-                    const docRef=doc(db,"users",user.uid)
-                  
-                    const snapShot=await getDoc(docRef);
 
-                        if(!snapShot.exists()){
-                            setUser({
-                                userId:user.uid,
-                                photoURL:user.photoURL,
-                                email:user.email,
-                                displayName:user.displayName,
-                                firstName:'',
-                                lastName:'',
-                                organizationName:'',
-    
-    
-                            })
-                        }
-    
-                        else{
-    
-                            setUser({
-    
-                                userId:user.uid,
-                                email:snapShot.data().email,
-                                photoURL:snapShot.data().photoURL,
-                                displayName:snapShot.data().displayName,
-                                firstName:snapShot.data().firstName,
-                                lastName:snapShot.data().lastName,
-                                organizationName:snapShot.data().organizationName,
+                    setUser({userId:user.uid})
 
-        
-        
-                            })
+           
+           
 
-                        }
-
-
-
-
-                    
-                  
-                  
-                    }
-
-                   
-
-                
-
-                getUser()
-              
-
-                
+       
             }
-
-
             else{
                 setUser(null)
             }
@@ -115,20 +60,25 @@ export const AuthContextProvider=({children})=>{
         console.log(first,last)
         
         createUserWithEmailAndPassword(auth,email,password).then(async(result)=>{
+            
+            const profile=getAuth()
+     
+        
 
-            const status=setDoc(doc(db,"users",result.user.uid),{
-                        email:result.user.email,
-                        photoURL:"https://ui-avatars.com/api/?name="+first+' '+last,
-                        displayName:first+' '+last,
+            const status1=await setDoc(doc(db,"users",result.user.uid),{
+
                         firstName:first,
                         lastName:last,
                         organizationName:'',
-                        stage:"created",
+             
  
                     
                     })
+                    
+             
+                    const status2=updateProfile(profile.currentUser,{displayName:first+' '+last,photoURL:"https://ui-avatars.com/api/?name="+first+' '+last})
 
-                    console.log(status)
+                 
                       
         }).catch((err)=>{
             
@@ -166,14 +116,12 @@ export const AuthContextProvider=({children})=>{
                 }
                 else{
                         
-                        const status=setDoc(doc(db,"users",result.user.uid),{
-                            email:result.user.email,
-                            photoURL:result.user.photoURL||"unknown",
-                            displayName:result.user.displayName||"unknown",
+                        const status=await setDoc(doc(db,"users",result.user.uid),{
+                            
                             firstName:'',
                             lastName:'',
                             organizationName:'',
-                            stage:"created",
+                            
                    
                             
                         })
@@ -195,6 +143,7 @@ export const AuthContextProvider=({children})=>{
             });
     };
     
+
 
     const logOut=async()=>{
         setUser(null)

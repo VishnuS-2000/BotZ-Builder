@@ -43,12 +43,12 @@ export default function Test(){
    return<>
     <SideMenu/>
 
-    <div class="chatbot"></div>
+    <div class="chatbot" appId={user.userId}></div>
     <link
   href="https://vishnus-2000.github.io/BotZ-Widget/docs/index.css"
   rel="stylesheet"
 />
-<Script  src="https://vishnus-2000.github.io/BotZ-Widget/docs/index.js"   strategy="beforeInteractive"/>
+<Script  src="https://vishnus-2000.github.io/BotZ-Widget/docs/index.js"  strategy="afterInteractive"/>
 
 
 

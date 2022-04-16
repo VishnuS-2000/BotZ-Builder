@@ -1,6 +1,4 @@
 import axios from "axios"
-import {defaultIntents} from './pages/Assets/Dashboard/intents';
-import { query } from 'firebase/firestore';
 
 
 

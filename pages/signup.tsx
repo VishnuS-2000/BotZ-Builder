@@ -17,6 +17,7 @@ const SignUp:NextPage=()=>{
     const[confirm,setConfirm]=useState("")
 
 
+
     const router=useRouter()
  
 
@@ -27,6 +28,7 @@ const SignUp:NextPage=()=>{
                 console.log(first,last)
                 signUp(email,password,first,last)
                 router.replace("/home")
+                
             }
 
             
@@ -49,7 +51,7 @@ const SignUp:NextPage=()=>{
                 <img src="./images/robo.jpg"/>
 
             </div>
-            <form className="flex flex-col w-full  space-y-1 items-start px-5 py-5 justify-between  ">
+      <form className="flex flex-col w-full  space-y-1 items-start px-5 py-5 justify-between  ">
             <h1 className="text-xl my-2 space-y-3 font-bold md:text-2xl  ">Register</h1>
             
 

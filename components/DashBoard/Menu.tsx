@@ -1,4 +1,4 @@
-import React,{useState,createContext,useContext} from "react"
+import React,{useState,useEffect} from "react"
 import Link from "next/link"
 
 
@@ -16,6 +16,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
 
 
+import {getAuth} from "firebase/auth"
+
 
 
 
@@ -24,10 +26,31 @@ import {useAuth} from "../../auth"
 
 
 export default function SideMenu(){
+
+
+const[profile,setProfile]=useState(null)
+
+
+
+
+
    
    const {logOut,user}=useAuth()
 
    const [expanded,setExpanded]=useState(false)
+
+
+   useEffect(()=>{
+
+    if(user){
+
+        setProfile(getAuth().currentUser)
+
+    }
+    
+
+
+},[])
 
 
     return <div className="flex flex-col h-full justify-evenly text-white bg-gradient-to-tl from-blue-500 to-indigo-800 border-gray-200 bg-white drop-shadow rounded-br-2xl rounded-tr-2xl font-sans fixed top-0 bottom-0 left-0 z-50">
@@ -41,8 +64,8 @@ export default function SideMenu(){
                <Link href="/account">
                 <Button>
          
-                <Avatar src={user.photoURL} style={{fontSize:"1rem"}}/>
-                {expanded&&<h1 className="text-white font-medium ml-5">{user.displayName}</h1>}
+                <Avatar src={profile?.photoURL} style={{fontSize:"1rem"}}/>
+                {expanded&&<h1 className="text-white font-medium ml-5">{profile?.displayName}</h1>}
                 </Button>
                 </Link>
  
@@ -59,7 +82,7 @@ export default function SideMenu(){
     <div className="flex w-full px-2 py-2  space-x-5 cursor-pointer">
                 
 
-         <Link href={{pathname:"/home",query:{id:user.userid}}}>
+         <Link href="/home">
                 <Button>
          
                 <HomeIcon style={{fontSize:"2rem",color:"white"}}/>
@@ -77,7 +100,7 @@ export default function SideMenu(){
             
              <div className="flex w-full px-2 py-2 cursor-pointer">
 
-               <Link href={{pathname:"/design",query:{id:user.userid}}}>
+               <Link  href="/design">
                 <Button className="text-center">
 
                 <BuildIcon style={{fontSize:"2rem",color:"white"}}/>
@@ -94,7 +117,7 @@ export default function SideMenu(){
                 <div className="flex w-full px-2 py-2 cursor-pointer">
               
 
-               <Link href={{pathname:"/test",query:{id:user.userid}}}>
+               <Link  href="/test">
                 <Button className="text-xl text-center">
                 <BugReportIcon style={{fontSize:"2rem",color:"white"}}/>      
                 {expanded&&<h1 className="text-white font-medium ml-5">Test</h1>}
@@ -107,7 +130,7 @@ export default function SideMenu(){
 <div className="flex w-full px-2 py-2 cursor-pointer">
 
 
-<Link href={{pathname:"/integrate",query:{id:user.userid}}}>
+<Link  href="/integrate">
 <Button className="text-xl text-center font-medium">
 <CodeIcon style={{fontSize:"2rem",color:"white"}}/>
 {expanded&&<h1 className="text-white font-medium ml-5">Integrate</h1>}
