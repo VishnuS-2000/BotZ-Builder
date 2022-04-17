@@ -20,7 +20,7 @@ import router from "next/router"
 export default function Account(){
 
 
-    const [profileMode,setProfileMode]=useState(true)
+
     const {user}=useAuth()
 
     const[showModal,setShowModal]=useState(false)
@@ -198,15 +198,13 @@ export default function Account(){
          Profile
        </button>
 
-       <button className="drop-shadow p-2 rounded-lg hover:text-blue-400" onClick={()=>setProfileMode(false)}>
-         Appearance
-         </button>
+     
       
 
 
      </div>
 
-     {profileMode&&<div className="flex flex-col space-y-6 md:lg-space-y-8 lg:space-y-10">
+     <div className="flex flex-col space-y-6 md:lg-space-y-8 lg:space-y-10">
 
       <div className="flex space-x-5 items-center">
       <Avatar src={account.photoURL} style={{width:"60px",height:"60px"}}></Avatar>
@@ -241,14 +239,9 @@ export default function Account(){
 
 
       <button className="bg-blue-800 hover:bg-blue-600 transition-all duration-500 px-3 py-2 rounded-lg text-white font-bold" onClick={handleSubmit}>Save Changes</button>
-    </div>}
+    </div>
 
-    {!profileMode&&<div className="">
-      <h1>Font Size</h1>
-      <h1>Dark Mode</h1>
-      </div>
-      }
-
+ 
      
      </div>
     </div>:<div>Loading....</div>}

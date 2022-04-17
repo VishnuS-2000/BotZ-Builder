@@ -57,7 +57,7 @@ export default function Home() {
     e.preventDefault()
 
     console.log(user.userId)
-    const status=await updateDoc(docRef,{bot:{name:botName,intents:defaultIntents,createdAt:serverTimestamp()}})
+    const status=await updateDoc(docRef,{bot:{name:botName,intents:defaultIntents,createdAt:serverTimestamp(),theme:{start:"from-blue-500",end:"to-indigo-800"}}})
 
     setShowModal(false)
     setBotName("")
@@ -80,7 +80,7 @@ export default function Home() {
   const editBot=async(e)=>{
 
     e.preventDefault()
-    const status=await updateDoc(docRef,{bot:{name:botName,intents:bot.intents,createdAt:bot.createdAt}})
+    const status=await updateDoc(docRef,{bot:{name:botName,intents:bot.intents,createdAt:bot.createdAt,theme:bot.theme}})
     setShowEditModal(false)
   }
 
@@ -182,7 +182,7 @@ const EditModal=()=>{
         <h1 className="text-2xl font-bold">Bot In Progress</h1>
         <div className="flex flex-col justify-center items-start p-10 w-1/2 cursor-pointer drop-shadow border space-y-10">
           <h1 className="text-2xl font-medium">{bot.name}</h1>
-          <p className="text-gray-700">Created {bot.createdAt.toDate().toLocaleDateString(undefined,{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} </p> 
+          <p className="text-gray-700">Created {bot?.createdAt?.toDate().toLocaleDateString(undefined,{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} </p> 
         
           
           <div className="flex space-x-5 items-center">

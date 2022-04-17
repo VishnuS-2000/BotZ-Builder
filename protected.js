@@ -2,6 +2,7 @@ import React,{useEffect} from "react"
 import {useAuth} from "./auth"
 import {useRouter} from "next/router"
 
+
 export default function ProtectedRoute({children}){
 
 
@@ -17,7 +18,11 @@ export default function ProtectedRoute({children}){
         }
     },[router,user])
 
-    return <>{user?children:null}</>
+    return (
+    <>
+    {user?children:null}</>
+)
+
 
 
 }

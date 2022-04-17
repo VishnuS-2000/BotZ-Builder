@@ -22,7 +22,7 @@ export default function Design(){
   const [responses, setResponses] = useState([]);
 
 
-  const [showModal,setShowModal]=useState(true)
+  const [showModal,setShowModal]=useState(false)
 
   const [bot,setBot]=useState(null)
   const {user}=useAuth()
@@ -112,6 +112,21 @@ export default function Design(){
   }
 
 
+  const editIntent=async(id,data)=>{
+
+    console.log(id)
+    const intents=bot.intents.filter((e,index)=>{
+      
+      return index!==id
+    
+    })
+
+    const status=await updateDoc(docRef,{bot:{...bot,intents:[...intents,data]}})
+      
+    
+
+  }
+
   const deleteIntent=async(id)=>{
 
     console.log(id)
@@ -122,12 +137,6 @@ export default function Design(){
     })
 
     const status=await updateDoc(docRef,{bot:{...bot,intents}})
-  }
-
-
-  const editIntent=async(id)=>{
-    
-    const status=await updateDoc()
   }
 
 
@@ -169,7 +178,7 @@ export default function Design(){
               </div>
               <div className="flex flex-col flex-[3] justify-around">
                 <h1 className="text-2xl font-semibold">Intents</h1>
-                <p className="text-lg font-medium text-gray-600">Training Data for your Chatbot</p>
+                <p className="text-lg font-medium text-gray-600">Intents determine the accuracy of prediction of bot</p>
 
                 <TextField name="tag" value={tag} label="Tag" onChange={({target}) => setTag(target.value)} />
 
@@ -228,7 +237,7 @@ export default function Design(){
                 
                 {bot.intents.map((intent,index)=>{
                   
-                  return <IntentCard id={index} tag={intent.tag} pattern={intent.patterns.length} response={intent.responses.length} actions={{edit:editIntent,delete:deleteIntent}}/>
+                  return <IntentCard id={index} tagData={intent.tag} patternsData={intent.patterns} responsesData={intent.responses} actions={{delete:deleteIntent,edit:editIntent}}/>
 
 
                 })}
@@ -249,7 +258,7 @@ export default function Design(){
 
         </div>
       
-   
+            {showModal&&<Modal/>}
                 </>
       )
 
@@ -265,5 +274,7 @@ export default function Design(){
           <p className="text-white text-xs m-0 w-fit px-[0.3rem] py-[0.1rem] flex items-center">x</p></button>
         </div>
     }
+
+
 
 
