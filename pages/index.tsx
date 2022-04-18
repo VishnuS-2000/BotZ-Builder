@@ -32,7 +32,7 @@ const Home: NextPage = () => {
 
 
 
-    <div className='bg-white w-7xl md:h-auto flex justify-between  py-8'>
+    <div className='bg-white w-7xl md:h-auto flex justify-between  py-8' id="section1">
       <div className='flex flex-col justify-center px-8 py-6 space-y-12 '>
 
         <h1 className='text-5xl font-bold font-sans  lg:text-6xl'>Build a Bot to your Liking!</h1>
@@ -107,7 +107,7 @@ const Home: NextPage = () => {
     {/* Feature Cards Section */}
 
       <div className="flex flex-col ">
-        <div className="flex flex-col items-center  space-y-5  py-5 text-center  lg:flex-row  justify-between">
+        <div className="flex flex-col items-center  space-y-5  py-5 text-center  lg:flex-row  justify-between" id="section2">
 
         <img src="./images/design.webp" className="max-w-sm md:max-w-lg "/>
        
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
     {/* Contact Section */}
 
 
-    <div className="flex mx-auto  justify-center shadow-inset shadow-lg my-20 shadow-blue-300  w-5/6 bg-white space-y-5 px-10 py-10 md:max-w-7xl rounded-xl border border-gray-200">
+    <div className="flex mx-auto  justify-center shadow-inset shadow-lg my-20 shadow-blue-300  w-5/6 bg-white space-y-5 px-10 py-10 md:max-w-7xl rounded-xl border border-gray-200" id="section3">
 
 
       <div className="flex flex-col items-center justify-center text-center space-y-10 relative z-0 mb-5">
@@ -192,7 +192,7 @@ const Home: NextPage = () => {
 
 
 
-  <div className='bg-gray-100 px-10 py-10 flex justify-between'>
+  <div className='bg-gray-100 px-10 py-10 flex justify-between' id="section4">
     <div className="">
 
     <h1 className="text-2xl font-bold">BOT Z</h1>

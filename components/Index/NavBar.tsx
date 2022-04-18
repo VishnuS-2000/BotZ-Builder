@@ -4,6 +4,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SideBar from './SideBar';
 import {motion,AnimatePresence} from "framer-motion";
 
+
+import {Link as ScrollLink} from "react-scroll"
+
+
 function NavBar() {
 
   const [showMenu,setShowMenu]=useState(false)
@@ -25,14 +29,55 @@ function NavBar() {
     {/* NavBar Middle */}
 
       <div className='flex items-center hidden md:inline-flex space-x-10'>
+      <ScrollLink
+    activeClass="active"
+    to="section1"
+    spy={true}
+    smooth={true}
+    offset={-70}
+    duration={500}
+>
         <h3 className='cursor-pointer'>Home </h3>
+        </ScrollLink>
+
+
+     
+  
+      <ScrollLink
+    activeClass="active"
+    to="section2"
+    spy={true}
+    smooth={true}
+    offset={-70}
+    duration={500}
+>
         <h3 className='cursor-pointer'>Features</h3>
+        </ScrollLink>
+    
+        <ScrollLink
+    activeClass="active"
+    to="section4"
+    spy={true}
+    smooth={true}
+    offset={-70}
+    duration={500}
+>
+        <h3 className='cursor-pointer'>About Us</h3>
+        </ScrollLink>
+
+
+      <ScrollLink
+    activeClass="active"
+    to="section3"
+    spy={true}
+    smooth={true}
+    offset={-70}
+    duration={500}
+>
         <h3 className='cursor-pointer'>Contact</h3>
-        <h3 className='cursor-pointer'>About</h3>
-
-      </div>
+        </ScrollLink>
       
-
+</div>
 
        {/* NavBar Buttons */}
 
