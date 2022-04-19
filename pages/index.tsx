@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 
 
+import Script from "next/script"
+
 // import components
 
 import NavBar from '../components/Index/NavBar'
@@ -219,12 +221,12 @@ const Home: NextPage = () => {
 
   </div>
 
-  {Chatbot}
-
-  <Chatbot/>
 
 
+  <div class="chatbot" appId="1wPXGE28OadWpu0n1UelRuHlJeb2"></div>
+  <link rel="stylesheet" src="https://vishnus-2000.github.io/BotZ-Widget/index.css"/>
 
+  <Script type="text/javascript" src="https://vishnus-2000.github.io/BotZ-Widget/index.js" strategy="lazyOnload"/>
   
 
     </div>

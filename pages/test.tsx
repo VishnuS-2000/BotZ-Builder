@@ -180,10 +180,10 @@ export default function Test(){
 
       </div>
     <link
-  href="https://vishnus-2000.github.io/BotZ-Widget/docs/index.css"
+  href="https://vishnus-2000.github.io/BotZ-Widget/index.css"
   rel="stylesheet"
 />
-<Script  src="https://vishnus-2000.github.io/BotZ-Widget/docs/index.js"  strategy="lazyOnload"/>
+<Script  src="https://vishnus-2000.github.io/BotZ-Widget/index.js"  strategy="lazyOnload"/>
 
 </div>
 :
